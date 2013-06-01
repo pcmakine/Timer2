@@ -47,12 +47,13 @@ public class MainActivity extends Activity {
         {
             try {
                 Thread.sleep(1000);
+                numbers.setText(String.format("%d:%02d", 0, seconds));
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
                 break;
             }
-            numbers.setText(seconds + "");
+
         }
     }
 

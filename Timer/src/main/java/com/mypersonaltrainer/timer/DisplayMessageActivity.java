@@ -1,8 +1,5 @@
 package com.mypersonaltrainer.timer;
 
-/**
- * Created by Pete on 31.5.2013.
- */
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;

@@ -3,35 +3,34 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="horizontal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://schemas.android.candroiom/apk/res/android ">
+              android:orientation="horizontal" >
 
     <EditText
             android:id="@+id/edit_message"
-            android:layout_width="0dp"
+            android:layout_width = "0dp"
             android:layout_height="wrap_content"
             android:hint="@string/edit_message"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
     <EditText
-            android:textIsSelectable="true"
+            android:textIsSelectable = "true"
             android:id="@+id/running_numbers"
             android:hint="@string/init_value"
-            android:inputType="number"
-            android:layout_width="0dp"
+            android:inputType = "number"
+            android:layout_width= "0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_add"
-            android:onClick="addOne"/>
+            android:onClick = "addOne"/>
 
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_send"
-            android:onClick="sendMessage"/>
+            android:onClick = "sendMessage"/>
 
 </LinearLayout>

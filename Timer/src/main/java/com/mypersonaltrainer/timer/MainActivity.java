@@ -17,12 +17,15 @@ import android.widget.TextView;
 @SuppressLint("NewApi")
 public class MainActivity extends Activity {
     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    private int number;
+    private UIUpdater mUIUpdater;
 
     /**
      * Called when the user clicks the Send button
      *
      * @param view
      */
+
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_message);
@@ -32,10 +35,9 @@ public class MainActivity extends Activity {
     }
 
     public void addOne(View view) {
-        EditText numbers = (EditText) findViewById(R.id.running_numbers);
+        final EditText numbers = (EditText) findViewById(R.id.running_numbers);
         CharSequence numero =  numbers.getText();
         String num = numero.toString();
-        int number;
         if(num.equals("")){
             number = 0;
         }
@@ -43,7 +45,24 @@ public class MainActivity extends Activity {
             number = Integer.parseInt(num);
         }
 
-        for (int seconds = number ; seconds >= 0; seconds--)
+        mUIUpdater = new UIUpdater(new Runnable(){
+            @Override
+            public void run(){
+                numbers.setText(Integer.toString(number));
+                number--;
+                if(number == 0){
+                    mUIUpdater.stopUpdates();
+                }
+            }
+        });
+
+        mUIUpdater.startUpdates();
+
+
+
+
+
+/*        for (int seconds = number ; seconds >= 0; seconds--)
         {
             try {
                 Thread.sleep(1000);
@@ -54,7 +73,15 @@ public class MainActivity extends Activity {
                 break;
             }
 
-        }
+        }*/
+    }
+
+    public void setNumber(int num){
+        number = num;
+    }
+
+    public int getNumber(){
+        return number;
     }
 
     @SuppressLint("NewApi")
